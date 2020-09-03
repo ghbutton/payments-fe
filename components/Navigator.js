@@ -2,14 +2,15 @@ import React, {useContext, useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoadingScreen from '../screens/LoadingScreen';
 import LoginScreen from '../screens/LoginScreen';
-import TwoFactorAuthScreen from '../screens/TwoFactorAuthScreen';
+import CreateAccountScreen from '../screens/CreateAccountScreen';
+import HomeScreen from '../screens/HomeScreen';
 
-import {StateProvider, Store} from './Store';
+import {StateProvider, Context} from './MemoryStore';
 const Stack = createStackNavigator();
 
 
 export default function Navigator() {
-  const {state, dispatch} = useContext(Store);
+  const {state, dispatch} = useContext(Context);
   const {sessionState} = state;
 
   const navigator = (sessionState) => {
@@ -24,11 +25,15 @@ export default function Navigator() {
         );
       case "LOGGED_OUT":
         return (
-          <Stack.Navigator
-            initialRouteName="LoginScreen"
-            screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="LoginScreen">
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
-            <Stack.Screen name="TwoFactorAuthScreen" component={TwoFactorAuthScreen} />
+            <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen} />
+          </Stack.Navigator>
+        );
+      case "LOGGED_IN":
+        return (
+          <Stack.Navigator initialRouteName="HomeScreen">
+            <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: "Home" }} />
           </Stack.Navigator>
         );
     }
