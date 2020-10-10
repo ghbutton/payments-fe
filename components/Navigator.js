@@ -4,6 +4,8 @@ import LoadingScreen from '../screens/LoadingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import CreateAccountScreen from '../screens/CreateAccountScreen';
 import HomeScreen from '../screens/HomeScreen';
+import PayScreen from '../screens/PayScreen';
+import ReceiveScreen from '../screens/ReceiveScreen';
 
 import {StateProvider, Context} from './MemoryStore';
 const Stack = createStackNavigator();
@@ -34,6 +36,8 @@ export default function Navigator() {
         return (
           <Stack.Navigator initialRouteName="HomeScreen">
             <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: "Home" }} />
+            <Stack.Screen name="PayScreen" component={PayScreen} options={{ title: "Pay" }} />
+            <Stack.Screen name="ReceiveScreen" component={ReceiveScreen} options={{ title: "Receive" }} />
           </Stack.Navigator>
         );
     }

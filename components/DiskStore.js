@@ -22,6 +22,13 @@ export default DiskStore = {
       console.log("ERROR", error);
       // Error saving data
     }
+  },
+  removeData: async (key) => {
+    try {
+      await AsyncStorage.removeItem(key);
+    } catch (error) {
+      console.log("ERROR", error);
+    }
   }
 }
 

@@ -9,8 +9,8 @@ import {
   Text,
 } from 'native-base';
 
-import Api from 'components/Api';
-import DiskStore from 'components/DiskStore';
+import Api from '../components/Api';
+import DiskStore from '../components/DiskStore';
 import {Context} from '../components/MemoryStore';
 
 export default function CreateAccountScreen({navigation}) {
@@ -54,7 +54,7 @@ export default function CreateAccountScreen({navigation}) {
     const user = await Api.createUser(email, password, otp, otpToken, firstName, lastName);
     if (user.meta && user.meta.session_token) {
       await DiskStore.setData("sessionToken", user.meta.session_token);
-      dispatch({type: "LOG_IN"});
+      dispatch({type: "LOG_IN", token: user.meta.session_token});
     }
   }
 
@@ -65,19 +65,19 @@ export default function CreateAccountScreen({navigation}) {
       <Content>
         <Form>
           <Item>
-            <Input placeholder="First Name" onBlur={Keyboard.dismiss} value={firstName} onChangeText={handleFirstNameChange} />
+            <Input placeholder="First Name" value={firstName} onChangeText={handleFirstNameChange} />
           </Item>
           <Item>
-            <Input placeholder="Last Name" onBlur={Keyboard.dismiss} value={lastName} onChangeText={handleLastNameChange} />
+            <Input placeholder="Last Name" value={lastName} onChangeText={handleLastNameChange} />
           </Item>
           <Item>
-            <Input placeholder="Email" onBlur={Keyboard.dismiss} value={email} onChangeText={handleEmailChange} autoCompleteType="email" keyboardType="email-address" textContentType="emailAddress" autoCapitalize="none" />
+            <Input placeholder="Email" value={email} onChangeText={handleEmailChange} autoCompleteType="email" keyboardType="email-address" textContentType="emailAddress" autoCapitalize="none" />
           </Item>
           <Item last>
-            <Input placeholder="Password" onBlur={Keyboard.dismiss} value={password} onChangeText={handlePasswordChange} secureTextEntry={true} textContentType="password" autoCompleteType="password" autoCapitalize="none" />
+            <Input placeholder="Password" value={password} onChangeText={handlePasswordChange} secureTextEntry={true} textContentType="password" autoCompleteType="password" autoCapitalize="none" />
           </Item>
           <Item last>
-            <Input placeholder="One Time Password" onBlur={Keyboard.dismiss} value={otpToken} onChangeText={handleOtpTokenChange} keyboardType="number-pad" />
+            <Input placeholder="One Time Password" value={otpToken} onChangeText={handleOtpTokenChange} keyboardType="number-pad" />
           </Item>
           <Button success onPress={linkToOtp}>
             <Text>One Time Password Generate</Text>

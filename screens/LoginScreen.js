@@ -8,7 +8,7 @@ import {
   Input,
   Text,
 } from 'native-base';
-import Api from 'components/Api';
+import Api from '../components/Api';
 import {Context} from '../components/MemoryStore';
 
 export default function LoginScreen({navigation}) {
@@ -25,8 +25,12 @@ export default function LoginScreen({navigation}) {
   const submit = async () => {
     const session = await Api.createSession(email, password, otpToken);
     if (session && session.data && session.data.attributes) {
-      await DiskStore.setData("sessionToken", session.data.attributes.token);
-      dispatch({type: "LOG_IN"});
+      await DiskStore.setData("session", session);
+      const token = await Api.createToken(session.data.id, session.data.attributes.secret, Math.floor(Date.now() / 1000));
+      if (token && token.data && token.data.attributes) {
+        await DiskStore.setData("sessionToken", token.data.attributes.token)
+        dispatch({type: "LOG_IN", token: token.data.attributes.token});
+      }
     }
   }
 
@@ -38,13 +42,13 @@ export default function LoginScreen({navigation}) {
     <Content>
       <Form>
         <Item>
-          <Input placeholder="Email" onBlur={Keyboard.dismiss} value={email} onChangeText={handleEmailChange} autoCompleteType="email" keyboardType="email-address" textContentType="emailAddress" autoCapitalize="none" />
+          <Input placeholder="Email" value={email} onChangeText={handleEmailChange} autoCompleteType="email" keyboardType="email-address" textContentType="emailAddress" autoCapitalize="none" />
         </Item>
         <Item last>
-          <Input placeholder="Password" onBlur={Keyboard.dismiss} value={password} onChangeText={handlePasswordChange} secureTextEntry={true} textContentType="password" autoCompleteType="password" autoCapitalize="none" />
+          <Input placeholder="Password" value={password} onChangeText={handlePasswordChange} secureTextEntry={true} textContentType="password" autoCompleteType="password" autoCapitalize="none" />
         </Item>
         <Item last>
-          <Input placeholder="One Time Password" onBlur={Keyboard.dismiss} value={otpToken} onChangeText={handleOtpTokenChange} keyboardType="number-pad" />
+          <Input placeholder="One Time Password" value={otpToken} onChangeText={handleOtpTokenChange} keyboardType="number-pad" />
         </Item>
         <Button block primary onPress={submit}>
           <Text>Submit</Text>

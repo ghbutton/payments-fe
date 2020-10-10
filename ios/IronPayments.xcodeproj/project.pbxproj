@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* IronPaymentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* IronPaymentsTests.m */; };
+		12BAFE69C6704499BEA0D3B1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8C81E3133F4674933B6EF7 /* FontAwesome5_Regular.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -15,30 +16,29 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* IronPaymentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* IronPaymentsTests.m */; };
-		4FEAAE2D4F51419A9D1212B8 /* libPods-IronPayments-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B620A563CFC1CA510C8E8D5E /* libPods-IronPayments-tvOS.a */; };
-		76A5DCF556D97954911F7E73 /* libPods-IronPayments-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62ED7A6CC1CA02BBBAF524D8 /* libPods-IronPayments-tvOSTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		ED45055FE8AADAAC2083BED1 /* libPods-IronPayments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2B283BDD467C2456EFDE91 /* libPods-IronPayments.a */; };
-		FAF7A5A3ADA78B236C9020B3 /* libPods-IronPayments-IronPaymentsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5E31F6E08B786B1DFDB9CA /* libPods-IronPayments-IronPaymentsTests.a */; };
-		9BBB3AF8CBBD4BA4B626042F /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 285278EC33044040B3FE9974 /* AntDesign.ttf */; };
-		67250B392AE04A1EBF936EA1 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A348D11032DB4324837AAC29 /* Entypo.ttf */; };
-		BEBFB7DE56FC4FC6929D45EF /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6B2208D1CE14C9FA8DBAAA5 /* EvilIcons.ttf */; };
-		A04BA7BCD42645FEAD48CA2F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43A7273D39FD41AE8C899761 /* Feather.ttf */; };
-		6A8D0167415245D8B87E686A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76474E80C3E4417EB87651B9 /* FontAwesome.ttf */; };
-		79E9D2ED6A9E4CFAA3A8373C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5979ADF540743C582E53D2D /* FontAwesome5_Brands.ttf */; };
-		12BAFE69C6704499BEA0D3B1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8C81E3133F4674933B6EF7 /* FontAwesome5_Regular.ttf */; };
-		6AD6BED5F4DB4088BDAC9C20 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD23A5B90BA47849BD8E731 /* FontAwesome5_Solid.ttf */; };
-		4F851729372E484B974F87A0 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 637E548844E04E64B082F7DC /* Fontisto.ttf */; };
-		81A1A738368144B4A0C0CA3C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D71A7F24006A4915BC0126DF /* Foundation.ttf */; };
-		F956814B20654A87A01B3D49 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A2A17DA92749D4B04BCE75 /* Ionicons.ttf */; };
 		309AD1D470154323B3BDCD08 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C08DE2C2EF6A48CB8BD1F207 /* MaterialCommunityIcons.ttf */; };
-		627C10778FC543D9A0875868 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B964AE133F0449FA105C259 /* MaterialIcons.ttf */; };
+		445C9D39EA3D4A8CACC4BA0D /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 566A84CC365E44BBA231F3CC /* Roboto.ttf */; };
+		4F851729372E484B974F87A0 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 637E548844E04E64B082F7DC /* Fontisto.ttf */; };
+		4FEAAE2D4F51419A9D1212B8 /* libPods-IronPayments-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B620A563CFC1CA510C8E8D5E /* libPods-IronPayments-tvOS.a */; };
 		50CC5CA72D2A48038DFF86E3 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 288B40DD7CCD4A0F9EC1232E /* Octicons.ttf */; };
 		5AADE720BC3344ECB349E129 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A005421FD124DB5A3C8A65E /* Roboto_medium.ttf */; };
-		445C9D39EA3D4A8CACC4BA0D /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 566A84CC365E44BBA231F3CC /* Roboto.ttf */; };
+		627C10778FC543D9A0875868 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B964AE133F0449FA105C259 /* MaterialIcons.ttf */; };
+		67250B392AE04A1EBF936EA1 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A348D11032DB4324837AAC29 /* Entypo.ttf */; };
+		6A8D0167415245D8B87E686A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76474E80C3E4417EB87651B9 /* FontAwesome.ttf */; };
+		6AD6BED5F4DB4088BDAC9C20 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD23A5B90BA47849BD8E731 /* FontAwesome5_Solid.ttf */; };
+		76A5DCF556D97954911F7E73 /* libPods-IronPayments-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62ED7A6CC1CA02BBBAF524D8 /* libPods-IronPayments-tvOSTests.a */; };
+		79E9D2ED6A9E4CFAA3A8373C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5979ADF540743C582E53D2D /* FontAwesome5_Brands.ttf */; };
 		7F524F5D25E64D95969A7ED5 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F83F14960449EA65F7939 /* rubicon-icon-font.ttf */; };
-		B64E0A79E009450A84D64740 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DFF860CDD2497A8278E5D6 /* SimpleLineIcons.ttf */; };
+		81A1A738368144B4A0C0CA3C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D71A7F24006A4915BC0126DF /* Foundation.ttf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9174B44DC1EB4E7EB2C0C548 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0265A47768704F79B59975BF /* Zocial.ttf */; };
+		9BBB3AF8CBBD4BA4B626042F /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 285278EC33044040B3FE9974 /* AntDesign.ttf */; };
+		A04BA7BCD42645FEAD48CA2F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43A7273D39FD41AE8C899761 /* Feather.ttf */; };
+		B64E0A79E009450A84D64740 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DFF860CDD2497A8278E5D6 /* SimpleLineIcons.ttf */; };
+		BEBFB7DE56FC4FC6929D45EF /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6B2208D1CE14C9FA8DBAAA5 /* EvilIcons.ttf */; };
+		ED45055FE8AADAAC2083BED1 /* libPods-IronPayments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2B283BDD467C2456EFDE91 /* libPods-IronPayments.a */; };
+		F956814B20654A87A01B3D49 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A2A17DA92749D4B04BCE75 /* Ionicons.ttf */; };
+		FAF7A5A3ADA78B236C9020B3 /* libPods-IronPayments-IronPaymentsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5E31F6E08B786B1DFDB9CA /* libPods-IronPayments-IronPaymentsTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,7 @@
 		00E356EE1AD99517003FC87E /* IronPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IronPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* IronPaymentsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IronPaymentsTests.m; sourceTree = "<group>"; };
+		0265A47768704F79B59975BF /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		047A35E62DC66C2EFAAAB93D /* Pods-IronPayments-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-IronPayments-tvOS/Pods-IronPayments-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		0DE2F688C35A0C65016EFAB5 /* Pods-IronPayments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments.debug.xcconfig"; path = "Target Support Files/Pods-IronPayments/Pods-IronPayments.debug.xcconfig"; sourceTree = "<group>"; };
 		10219E9C05ACFF320B6D2DD9 /* Pods-IronPayments-IronPaymentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments-IronPaymentsTests.debug.xcconfig"; path = "Target Support Files/Pods-IronPayments-IronPaymentsTests/Pods-IronPayments-IronPaymentsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,39 +73,38 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = IronPayments/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = IronPayments/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = IronPayments/main.m; sourceTree = "<group>"; };
+		1D1F83F14960449EA65F7939 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
+		285278EC33044040B3FE9974 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		288B40DD7CCD4A0F9EC1232E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		2AFFF1E0293501099FEF1F94 /* Pods-IronPayments-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments-tvOS.release.xcconfig"; path = "Target Support Files/Pods-IronPayments-tvOS/Pods-IronPayments-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* IronPayments-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IronPayments-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* IronPayments-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IronPayments-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43A7273D39FD41AE8C899761 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		451C1D3A5BED8DE8CCDC026B /* Pods-IronPayments-IronPaymentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments-IronPaymentsTests.release.xcconfig"; path = "Target Support Files/Pods-IronPayments-IronPaymentsTests/Pods-IronPayments-IronPaymentsTests.release.xcconfig"; sourceTree = "<group>"; };
+		49A2A17DA92749D4B04BCE75 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		4FAD67ACDA41CA7D2BDB87AE /* Pods-IronPayments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments.release.xcconfig"; path = "Target Support Files/Pods-IronPayments/Pods-IronPayments.release.xcconfig"; sourceTree = "<group>"; };
+		566A84CC365E44BBA231F3CC /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		62DFF860CDD2497A8278E5D6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		62ED7A6CC1CA02BBBAF524D8 /* libPods-IronPayments-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IronPayments-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		637E548844E04E64B082F7DC /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		6A005421FD124DB5A3C8A65E /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		6B2B283BDD467C2456EFDE91 /* libPods-IronPayments.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IronPayments.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76474E80C3E4417EB87651B9 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		7B964AE133F0449FA105C259 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = IronPayments/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9CD23A5B90BA47849BD8E731 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		A348D11032DB4324837AAC29 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		A5979ADF540743C582E53D2D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		AA8C81E3133F4674933B6EF7 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		B620A563CFC1CA510C8E8D5E /* libPods-IronPayments-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IronPayments-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08DE2C2EF6A48CB8BD1F207 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		D71A7F24006A4915BC0126DF /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		DA5E31F6E08B786B1DFDB9CA /* libPods-IronPayments-IronPaymentsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IronPayments-IronPaymentsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F4725CCF18F9B253AB69ED2E /* Pods-IronPayments-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-IronPayments-tvOSTests/Pods-IronPayments-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6B2208D1CE14C9FA8DBAAA5 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		F721F345836A63C57A22BCF6 /* Pods-IronPayments-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IronPayments-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-IronPayments-tvOSTests/Pods-IronPayments-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		285278EC33044040B3FE9974 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A348D11032DB4324837AAC29 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F6B2208D1CE14C9FA8DBAAA5 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		43A7273D39FD41AE8C899761 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		76474E80C3E4417EB87651B9 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A5979ADF540743C582E53D2D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AA8C81E3133F4674933B6EF7 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9CD23A5B90BA47849BD8E731 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		637E548844E04E64B082F7DC /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D71A7F24006A4915BC0126DF /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		49A2A17DA92749D4B04BCE75 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C08DE2C2EF6A48CB8BD1F207 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7B964AE133F0449FA105C259 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		288B40DD7CCD4A0F9EC1232E /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6A005421FD124DB5A3C8A65E /* Roboto_medium.ttf */ = {isa = PBXFileReference; name = "Roboto_medium.ttf"; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		566A84CC365E44BBA231F3CC /* Roboto.ttf */ = {isa = PBXFileReference; name = "Roboto.ttf"; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1D1F83F14960449EA65F7939 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		62DFF860CDD2497A8278E5D6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0265A47768704F79B59975BF /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,6 @@
 				F4725CCF18F9B253AB69ED2E /* Pods-IronPayments-tvOSTests.debug.xcconfig */,
 				F721F345836A63C57A22BCF6 /* Pods-IronPayments-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,7 +237,7 @@
 			sourceTree = "<group>";
 		};
 		C388432B5899499FAD8CC6D3 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				285278EC33044040B3FE9974 /* AntDesign.ttf */,
 				A348D11032DB4324837AAC29 /* Entypo.ttf */,
@@ -262,7 +261,6 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -360,6 +358,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = ZWT8NFRJC9;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -741,6 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZWT8NFRJC9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = IronPayments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -764,6 +764,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZWT8NFRJC9;
 				INFOPLIST_FILE = IronPayments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

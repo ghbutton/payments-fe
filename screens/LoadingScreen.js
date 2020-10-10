@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
-import {StateProvider, Context} from '../components/MemoryStore';
+import {Context} from '../components/MemoryStore';
 import DiskStore from '../components/DiskStore';
-import Api from 'components/Api';
+import Api from '../components/Api';
 
 const logo = require('../static/images/icon.png');
 const styles = StyleSheet.create({
@@ -20,13 +20,14 @@ const styles = StyleSheet.create({
 });
 
 export default function LoadingScreen() {
-  const {state, dispatch} = useContext(Context);
+  const {dispatch} = useContext(Context);
 
   useEffect(() => {
     const fetch = async () => {
+      const session = await DiskStore.getData("session");
       const sessionToken = await DiskStore.getData("sessionToken");
       if (sessionToken) {
-        dispatch({type: "LOG_IN"});
+        dispatch({type: "LOG_IN", token: sessionToken});
       } else {
         dispatch({type: "LOG_OUT"});
       }
