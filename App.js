@@ -25,7 +25,7 @@ const App: () => React$Node = () => {
         <StyleProvider style={getTheme(ironPlatform)}>
           <Root>
             <StatusBar barStyle="dark-content" />
-            <SafeAreaView style={{backgroundColor: '#296394'}}></SafeAreaView>
+            <SafeAreaView style={{backgroundColor: '#296394'}} />
             <Navigator />
           </Root>
         </StyleProvider>

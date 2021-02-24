@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import { Button, Form, Item, Input, Label, Text } from 'native-base';
-import { RNCamera } from 'react-native-camera';
-import { get } from 'lodash';
+import {Button, Form, Item, Input, Label, Text} from 'native-base';
+import {RNCamera} from 'react-native-camera';
+import {get} from 'lodash';
 
 import Url from '../components/Url';
 import Api from '../components/Api';
@@ -11,7 +11,7 @@ import {Context} from '../components/MemoryStore';
 
 export default function PayScreen() {
   const {state} = useContext(Context);
-  const [paymentState, setPaymentState] = useState("unclaimed");
+  const [paymentState, setPaymentState] = useState('unclaimed');
   const [claimedTransaction, setClaimedTransaction] = useState(null);
   const [pendingTransactionId, setPendingTransactionId] = useState(null);
 
@@ -38,65 +38,77 @@ export default function PayScreen() {
   });
 
   const finishPayment = async () => {
-    const response = await Api.finishPendingUserTransaction(state.sessionToken, pendingTransactionId);
+    const response = await Api.finishPendingUserTransaction(
+      state.sessionToken,
+      pendingTransactionId,
+    );
     console.log(response);
-  }
+  };
 
   const resetState = async () => {
-    setPaymentState("unclaimed");
+    setPaymentState('unclaimed');
     setClaimedTransaction(null);
     setPendingTransactionId(null);
-  }
+  };
 
   const onCancel = async () => {
     resetState();
-  }
+  };
 
   const payVersion1 = async (params) => {
-    const response = await Api.claimPendingUserTransaction(state.sessionToken, params.pending_id, params.secret)
-    if (response && response.data.type === "pending_user_transactions") {
+    const response = await Api.claimPendingUserTransaction(
+      state.sessionToken,
+      params.pending_id,
+      params.secret,
+    );
+    if (response && response.data.type === 'pending_user_transactions') {
       setClaimedTransaction(response);
-      setPaymentState("claimed");
+      setPaymentState('claimed');
     } else {
-      setPaymentState("unclaimed");
+      setPaymentState('unclaimed');
     }
-  }
+  };
 
   const onPayUrl = async (url) => {
     const params = Url.queryParams(url);
-    await setPaymentState("claiming");
+    await setPaymentState('claiming');
     await setPendingTransactionId(params.pending_id);
-    if (params.version === "1") {
+    if (params.version === '1') {
       payVersion1(params);
     }
-  }
+  };
 
   const unclaimedState = () => (
     <View style={styles.container}>
       <RNCamera
         style={styles.preview}
         onBarCodeRead={(code) => {
-          const urlString = get(code, "data");
+          const urlString = get(code, 'data');
           onPayUrl(urlString);
         }}
         captureAudio={false}
       />
-
     </View>
-  )
+  );
 
   const claimingState = () => (
     <View>
       <Text>Claiming</Text>
     </View>
-  )
+  );
 
   const claimedState = () => (
     <View>
       <Form>
         <Item>
           <Label>Amount</Label>
-          <Input placeholder={Money.stringAmount(claimedTransaction.data.attributes.amount, claimedTransaction.data.attributes.currency)} disabled />
+          <Input
+            placeholder={Money.stringAmount(
+              claimedTransaction.data.attributes.amount,
+              claimedTransaction.data.attributes.currency,
+            )}
+            disabled
+          />
         </Item>
         <Item>
           <Label>Currency</Label>
@@ -110,13 +122,13 @@ export default function PayScreen() {
         </Button>
       </Form>
     </View>
-  )
+  );
 
-  if (paymentState === "unclaimed") {
+  if (paymentState === 'unclaimed') {
     return unclaimedState();
-  } else if (paymentState === "claiming") {
+  } else if (paymentState === 'claiming') {
     return claimingState();
-  } else if (paymentState === "claimed") {
+  } else if (paymentState === 'claimed') {
     return claimedState();
   }
 }

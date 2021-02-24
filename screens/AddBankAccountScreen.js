@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import { Button, Content, Form, Item, Input, Label, Text } from 'native-base';
-import { get } from 'lodash';
+import {Button, Content, Form, Item, Input, Label, Text} from 'native-base';
+import {get} from 'lodash';
 
 import Api from '../components/Api';
 import {Context} from '../components/MemoryStore';
@@ -9,16 +9,24 @@ import {Context} from '../components/MemoryStore';
 export default function AddBankAccountScreen({navigation}) {
   const {state} = useContext(Context);
 
-  const [account, setAccount] = useState("");
-  const handleAccountChange = (value) => { setAccount(value) }
+  const [account, setAccount] = useState('');
+  const handleAccountChange = (value) => {
+    setAccount(value);
+  };
 
-  const [routing, setRouting] = useState("");
-  const handleRoutingChange = (value) => { setRouting(value) }
+  const [routing, setRouting] = useState('');
+  const handleRoutingChange = (value) => {
+    setRouting(value);
+  };
 
   const handleAdd = async () => {
-    const response = await Api.createBankAccountVerification(state.sessionToken, account, routing)
-    const pendingId = get(response, "data.id");
-    if(pendingId) {
+    const response = await Api.createBankAccountVerification(
+      state.sessionToken,
+      account,
+      routing,
+    );
+    const pendingId = get(response, 'data.id');
+    if (pendingId) {
       navigation.goBack();
     }
   };
@@ -39,5 +47,5 @@ export default function AddBankAccountScreen({navigation}) {
         </Button>
       </Form>
     </Content>
-  )
+  );
 }

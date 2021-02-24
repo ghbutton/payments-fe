@@ -3,30 +3,30 @@
 import React, {createContext, useReducer} from 'react';
 
 const initialState = {
-  sessionState: "LOADING",
+  sessionState: 'LOADING',
   sessionToken: undefined,
-  errorMessage: "",
+  errorMessage: '',
 };
 const Context = createContext(initialState);
-const { Provider } = Context;
+const {Provider} = Context;
 
-const StateProvider = ( { children } ) => {
+const StateProvider = ({children}) => {
   const [state, dispatch] = useReducer((state, action) => {
-    switch(action.type) {
-      case "LOADING":
+    switch (action.type) {
+      case 'LOADING':
         return initialState;
-      case "LOG_IN":
-        return {sessionState: "LOGGED_IN", sessionToken: action.token};
-      case "LOG_OUT":
-        return {sessionState: "LOGGED_OUT", sessionToken: undefined};
-      case "OUTDATED":
-        return {sessionState: "OUTDATED", sessionToken: undefined};
+      case 'LOG_IN':
+        return {sessionState: 'LOGGED_IN', sessionToken: action.token};
+      case 'LOG_OUT':
+        return {sessionState: 'LOGGED_OUT', sessionToken: undefined};
+      case 'OUTDATED':
+        return {sessionState: 'OUTDATED', sessionToken: undefined};
       default:
         throw new Error();
-    };
+    }
   }, initialState);
 
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+  return <Provider value={{state, dispatch}}>{children}</Provider>;
 };
 
-export { Context, StateProvider }
+export {Context, StateProvider};

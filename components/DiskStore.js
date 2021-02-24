@@ -3,10 +3,10 @@ import AsyncStorage from '@react-native-community/async-storage';
 export default DiskStore = {
   setData: async (key, value) => {
     try {
-      const jsonValue = JSON.stringify(value)
+      const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem(key, jsonValue);
     } catch (error) {
-      console.log("ERROR", error)
+      console.log('ERROR', error);
       // Error saving data
     }
   },
@@ -19,7 +19,7 @@ export default DiskStore = {
         return null;
       }
     } catch (error) {
-      console.log("ERROR", error);
+      console.log('ERROR', error);
       // Error saving data
     }
   },
@@ -27,15 +27,14 @@ export default DiskStore = {
     try {
       await AsyncStorage.removeItem(key);
     } catch (error) {
-      console.log("ERROR", error);
+      console.log('ERROR', error);
     }
   },
   clearAllData: async () => {
     try {
       await AsyncStorage.clear();
     } catch (error) {
-      console.log("ERROR", error);
+      console.log('ERROR', error);
     }
   },
-}
-
+};
