@@ -29,6 +29,13 @@ export default DiskStore = {
     } catch (error) {
       console.log("ERROR", error);
     }
-  }
+  },
+  clearAllData: async () => {
+    try {
+      await AsyncStorage.clear();
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  },
 }
 

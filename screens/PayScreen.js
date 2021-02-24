@@ -96,7 +96,7 @@ export default function PayScreen() {
       <Form>
         <Item>
           <Label>Amount</Label>
-          <Input placeholder={Money.number(claimedTransaction.data.attributes.amount, claimedTransaction.data.attributes.currency)} disabled />
+          <Input placeholder={Money.stringAmount(claimedTransaction.data.attributes.amount, claimedTransaction.data.attributes.currency)} disabled />
         </Item>
         <Item>
           <Label>Currency</Label>

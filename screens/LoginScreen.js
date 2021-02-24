@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState } from 'react';
-import {Keyboard} from 'react-native';
+import {Keyboard, View} from 'react-native';
 import {
   Button,
   Content,
@@ -9,6 +9,7 @@ import {
   Text,
 } from 'native-base';
 import Api from '../components/Api';
+import Utils from '../components/Utils';
 import {Context} from '../components/MemoryStore';
 
 export default function LoginScreen({navigation}) {
@@ -19,18 +20,14 @@ export default function LoginScreen({navigation}) {
   const [password, setPassword] = useState("");
   const handlePasswordChange = (value) => { setPassword(value) }
 
-  const [otpToken, setOtpToken] = useState("");
-  const handleOtpTokenChange = (value) => { setOtpToken(value) }
+  const [error, setError] = useState("");
 
   const submit = async () => {
-    const session = await Api.createSession(email, password, otpToken);
-    if (session && session.data && session.data.attributes) {
-      await DiskStore.setData("session", session);
-      const token = await Api.createToken(session.data.id, session.data.attributes.secret, Math.floor(Date.now() / 1000));
-      if (token && token.data && token.data.attributes) {
-        await DiskStore.setData("sessionToken", token.data.attributes.token)
-        dispatch({type: "LOG_IN", token: token.data.attributes.token});
-      }
+    const token = await Utils.createSessionAndToken(email, password);
+    if (token) {
+      dispatch({type: "LOG_IN", token: token});
+    } else {
+      setError("Could not login, please check credentials");
     }
   }
 
@@ -39,25 +36,30 @@ export default function LoginScreen({navigation}) {
   }
 
   return (
-    <Content>
+    <Content padder>
       <Form>
         <Item>
-          <Input placeholder="Email" value={email} onChangeText={handleEmailChange} autoCompleteType="email" keyboardType="email-address" textContentType="emailAddress" autoCapitalize="none" />
+          <Input placeholder="Email" value={email} onChangeText={handleEmailChange} autoCompleteType="email" keyboardType="email-address" textContentType="emailAddress" autoCapitalize="none" autoCorrect={false} />
         </Item>
         <Item last>
           <Input placeholder="Password" value={password} onChangeText={handlePasswordChange} secureTextEntry={true} textContentType="password" autoCompleteType="password" autoCapitalize="none" />
         </Item>
-        <Item last>
-          <Input placeholder="One Time Password" value={otpToken} onChangeText={handleOtpTokenChange} keyboardType="number-pad" />
-        </Item>
-        <Button block primary onPress={submit}>
-          <Text>Submit</Text>
-        </Button>
+        <View style={{paddingTop: 15}}>
+          { error !== "" && (
+            <Text style={{fontSize: 12, fontWeight: 'bold', color: 'red',}}>{error}</Text>
+          )}
+          <Button block primary onPress={submit}>
+            <Text>Submit</Text>
+          </Button>
+          <View style={{flex:1,justifyContent: "center",alignItems: "center"}}>
+            <Text style={{}}>or</Text>
+          </View>
+
+          <Button block success onPress={createAccount}>
+            <Text>Create Account</Text>
+          </Button>
+        </View>
       </Form>
-      <Text>or</Text>
-      <Button block success onPress={createAccount}>
-        <Text>Create Account</Text>
-      </Button>
     </Content>
   )
 }

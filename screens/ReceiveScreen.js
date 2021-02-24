@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import QRCode from 'react-native-qrcode-svg';
-import { Button, Form, Item, Input, Label, Text } from 'native-base';
+import { Button, Content, Form, Item, Input, Label, Text, View } from 'native-base';
 import {get} from 'lodash';
 
 import Api from '../components/Api';
@@ -16,11 +16,7 @@ export default function ReceiveScreen() {
   const [pendingId, setPendingId] = useState(null);
 
   const handleAmountChange = (value) => {
-    const [dollar, cents] = value.split(".");
-    const leadingCents = (cents || "0").substring(0, 2);
-    // Ugh I can believe you can add strings to numbers if you wanted to
-    // javascript is annoying
-    setAmount((Number(dollar) * 100) + Number(leadingCents))
+    setAmount(Money.decimalAmount(value, currency))
   }
   const submit = async () => {
     const response = await Api.createPendingUserTransaction(state.sessionToken, currency, amount);
@@ -37,29 +33,38 @@ export default function ReceiveScreen() {
 
   const showForm = () => {
     return (
-      <Form>
-        <Item>
-          <Label>Amount</Label>
-          <Input keyboardType="numeric" placeholder="0" onChangeText={handleAmountChange} />
-        </Item>
-        <Item>
-          <Label>Currency</Label>
-          <Input placeholder="USD" disabled />
-        </Item>
-        <Button block primary onPress={submit}>
-          <Text>Ready</Text>
-        </Button>
-      </Form>
+      <Content padder>
+        <Form>
+          <Item>
+            <Label>Amount</Label>
+            <Input keyboardType="numeric" placeholder="0" onChangeText={handleAmountChange} />
+          </Item>
+          <Item>
+            <Label>Currency</Label>
+            <Input placeholder="USD" disabled />
+          </Item>
+          <Button block primary onPress={submit}>
+            <Text>Ready</Text>
+          </Button>
+        </Form>
+      </Content>
     )
   }
   const showQr = () => {
-    return (<>
-    <Text>Amount: {Money.format(amount, currency)}</Text>
-    <QRCode
-      value={`https://www.ironnotice.com/app/receive?currency=${currency}&amount=${amount}&secret=${secret}&pending_id=${pendingId}&version=1`}
-      size={300}
-    />
-  </>)
+    return (
+      <Content padder >
+        <View style={{alignItems: 'center', flex: 1, flexGrow: 1, height: 500, justifyContent: 'space-between'}}>
+          <View style={{flex: 1, }}>
+            <Text style={{fontSize: 20}}>Amount: {Money.fullString(amount, currency)}</Text>
+          </View>
+          <QRCode
+            value={`https://www.ironnotice.com/app/receive?currency=${currency}&amount=${amount}&secret=${secret}&pending_id=${pendingId}&version=1`}
+            size={300}
+            style={{flex: 1}}
+          />
+        </View>
+      </Content>
+    )
   }
 
   return submitted ? showQr() : showForm();
