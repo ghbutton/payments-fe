@@ -63,7 +63,7 @@ const Api = {
     }
   },
   createSession: async (email, password) => {
-    data = {data: {type: 'sessions', attributes: {email, password}}};
+    const data = {data: {type: 'sessions', attributes: {email, password}}};
     try {
       let response = await fetch(`${baseUrl}/api/v1/sessions`, {
         method: 'POST',
@@ -77,7 +77,9 @@ const Api = {
   },
   createToken: async (id, token, timestamp) => {
     const hash = await RNSimpleCrypto.SHA.sha256(`${token}:${timestamp}`);
-    data = {data: {type: 'session_tokens', attributes: {hash, timestamp}}};
+    const data = {
+      data: {type: 'session_tokens', attributes: {hash, timestamp}},
+    };
     try {
       let response = await fetch(
         `${baseUrl}/api/v1/sessions/${id}/session_tokens`,
@@ -104,7 +106,7 @@ const Api = {
     }
   },
   createUser: async (email, password, firstName, lastName) => {
-    data = {
+    const data = {
       data: {
         type: 'users',
         attributes: {
@@ -127,7 +129,7 @@ const Api = {
     }
   },
   createEmailVerification: async (user, email, emailVerification) => {
-    data = {
+    const data = {
       data: {
         type: 'email_verifications',
         attributes: {unconfirmed_email: email},
@@ -241,6 +243,31 @@ const Api = {
       console.error(error);
     }
   },
+  createBankAccountFromPlaid: async (
+    sessionToken,
+    authorization_id,
+    account_id,
+  ) => {
+    const data = {
+      data: {type: 'bank_accounts', attributes: {}},
+      meta: {
+        provider: 'plaid',
+        authorization_id,
+        account_id,
+      },
+    };
+
+    try {
+      let response = await fetch(`${baseUrl}/api/v1/bank_accounts`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: loggedInHeaders(sessionToken),
+      });
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  },
   verifyBankAccount: async (
     sessionToken,
     bankAccountVerificationId,
@@ -258,6 +285,47 @@ const Api = {
 
     try {
       let response = await fetch(`${baseUrl}/api/v1/bank_accounts`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: loggedInHeaders(sessionToken),
+      });
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  updatePlaidPublicToken: async (sessionToken, id, publicToken) => {
+    const data = {
+      data: {
+        type: 'plaid_authorizations',
+        meta: {public_token: publicToken},
+      },
+    };
+
+    try {
+      let response = await fetch(
+        `${baseUrl}/api/v1/plaid_authorizations/${id}`,
+        {
+          method: 'PATCH',
+          body: JSON.stringify(data),
+          headers: loggedInHeaders(sessionToken),
+        },
+      );
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  createPlaidAuthorization: async (sessionToken) => {
+    const data = {
+      data: {
+        type: 'plaid_authorizations',
+        attributes: {},
+      },
+    };
+
+    try {
+      let response = await fetch(`${baseUrl}/api/v1/plaid_authorizations`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: loggedInHeaders(sessionToken),
@@ -320,6 +388,7 @@ const Api = {
   ) => {
     const data = {
       data: {type: 'bank_transactions', attributes: {currency, amount, type}},
+      meta: {provider: 'plaid'},
     };
 
     try {

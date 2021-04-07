@@ -2,7 +2,6 @@ import React, {useContext, useCallback, useState} from 'react';
 import {Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 import {Button, Content, Text, View} from 'native-base';
-import {get} from 'lodash';
 
 import Api from '../components/Api';
 import DiskStore from '../components/DiskStore';
@@ -33,7 +32,7 @@ export default function HomeScreen({navigation}) {
         }
       };
       fetch();
-    }, []),
+    }, [state.sessionToken]),
   );
 
   return (

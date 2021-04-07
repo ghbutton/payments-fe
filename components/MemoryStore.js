@@ -11,7 +11,7 @@ const Context = createContext(initialState);
 const {Provider} = Context;
 
 const StateProvider = ({children}) => {
-  const [state, dispatch] = useReducer((state, action) => {
+  const [state, dispatch] = useReducer((_state, action) => {
     switch (action.type) {
       case 'LOADING':
         return initialState;

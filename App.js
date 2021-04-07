@@ -7,10 +7,9 @@
  */
 
 import 'react-native-gesture-handler';
-import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, StatusBar, View} from 'react-native';
+import React from 'react';
+import {SafeAreaView, StatusBar} from 'react-native';
 import {Root, StyleProvider} from 'native-base';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {StateProvider} from './components/MemoryStore';

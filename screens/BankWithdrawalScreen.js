@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useContext, useState} from 'react';
 import {Button, Content, Form, Item, Input, Label, Text} from 'native-base';
 import {get} from 'lodash';
 
@@ -7,7 +6,7 @@ import Api from '../components/Api';
 import Money from '../components/Money';
 import {Context} from '../components/MemoryStore';
 
-export default function WithdrawalScreen({route, navigation}) {
+export default function BankWithdrawalScreen({route, navigation}) {
   const {state} = useContext(Context);
   const {bankAccount} = route.params;
   const currency = 'USDC';
@@ -18,7 +17,7 @@ export default function WithdrawalScreen({route, navigation}) {
     setAmount(Money.decimalAmount(value, currency));
   };
 
-  const handleWithdrawal = async () => {
+  const handleBankWithdrawal = async () => {
     const response = await Api.createBankTransaction(
       state.sessionToken,
       bankAccount.id,
@@ -42,7 +41,7 @@ export default function WithdrawalScreen({route, navigation}) {
             onChangeText={handleAmountChange}
           />
         </Item>
-        <Button block primary onPress={handleWithdrawal}>
+        <Button block primary onPress={handleBankWithdrawal}>
           <Text>Withdrawal</Text>
         </Button>
       </Form>

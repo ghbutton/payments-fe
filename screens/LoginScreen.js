@@ -1,7 +1,6 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Keyboard, View} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View} from 'react-native';
 import {Button, Content, Form, Item, Input, Text} from 'native-base';
-import Api from '../components/Api';
 import Utils from '../components/Utils';
 import {Context} from '../components/MemoryStore';
 

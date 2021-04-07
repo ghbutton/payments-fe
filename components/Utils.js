@@ -1,4 +1,5 @@
 import Api from './Api';
+import DiskStore from './DiskStore';
 
 const Utils = {
   createSessionAndToken: async (email, password) => {

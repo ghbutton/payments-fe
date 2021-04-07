@@ -70,6 +70,7 @@ PODS:
   - OpenSSL-Universal (1.0.2.19):
     - OpenSSL-Universal/Static (= 1.0.2.19)
   - OpenSSL-Universal/Static (1.0.2.19)
+  - Plaid (2.0.11)
   - RCTRequired (0.63.2)
   - RCTTypeSafety (0.63.2):
     - FBLazyVector (= 0.63.2)
@@ -244,6 +245,9 @@ PODS:
     - React
   - react-native-camera/RN (3.39.0):
     - React
+  - react-native-plaid-link-sdk (7.0.0):
+    - Plaid (~> 2.0.11)
+    - React-Core
   - react-native-safe-area-context (3.1.6):
     - React
   - react-native-simple-crypto (0.2.14):
@@ -362,6 +366,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-camera (from `../node_modules/react-native-camera`)
+  - react-native-plaid-link-sdk (from `../node_modules/react-native-plaid-link-sdk`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-simple-crypto (from `../node_modules/react-native-simple-crypto`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -395,6 +400,7 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - OpenSSL-Universal
+    - Plaid
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -430,6 +436,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
+  react-native-plaid-link-sdk:
+    :path: "../node_modules/react-native-plaid-link-sdk"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-simple-crypto:
@@ -486,6 +494,7 @@ SPEC CHECKSUMS:
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
+  Plaid: 5e387a65c712ce0019fb19a80dbec5c815a1d19c
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
   React: e1c65dd41cb9db13b99f24608e47dd595f28ca9a
@@ -497,6 +506,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
   react-native-camera: 3940f67a49eaf736525a3e730653fcb98e1525dd
+  react-native-plaid-link-sdk: dda4d2c0f41f9587519841189bc1471eb7b2fbc6
   react-native-safe-area-context: 4fb3cdeb4a405ec19f18aca80ef2144381ffc761
   react-native-simple-crypto: 6969f86ad3e1c319a98623caa62095b29b4ebed3
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
@@ -518,6 +528,6 @@ SPEC CHECKSUMS:
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: a6906f36a5511b782317a5ac46dc54307337ca3b
+PODFILE CHECKSUM: 29d9a33e50dc2a59073c1d9c928d2608eec0d8de
 
 COCOAPODS: 1.9.3

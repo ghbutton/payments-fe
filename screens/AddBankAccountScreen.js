@@ -1,51 +1,88 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Button, Content, Form, Item, Input, Label, Text} from 'native-base';
+import React, {useCallback, useContext, useState} from 'react';
+import {FlatList, View} from 'react-native';
+import {Button, Content, Text} from 'native-base';
 import {get} from 'lodash';
+import {useFocusEffect} from '@react-navigation/native';
+import {PlaidLink, LinkSuccess, LinkExit} from 'react-native-plaid-link-sdk';
 
 import Api from '../components/Api';
 import {Context} from '../components/MemoryStore';
 
 export default function AddBankAccountScreen({navigation}) {
   const {state} = useContext(Context);
+  const [plaidAuthorization, setPlaidAuthorization] = useState(null);
+  const [achAccounts, setAchAccounts] = useState([]);
 
-  const [account, setAccount] = useState('');
-  const handleAccountChange = (value) => {
-    setAccount(value);
+  useFocusEffect(
+    useCallback(() => {
+      const fetch = async () => {
+        const authorization = await Api.createPlaidAuthorization(
+          state.sessionToken,
+        );
+        if (authorization) {
+          setPlaidAuthorization(authorization);
+        }
+      };
+      fetch();
+    }, [state.sessionToken]),
+  );
+
+  const selectAchAccount = (item) => {
+    return async () => {
+      const response = await Api.createBankAccountFromPlaid(
+        state.sessionToken,
+        plaidAuthorization.data.id,
+        item.plaid_account_id,
+      );
+      if (get(response, 'data.id')) {
+        navigation.goBack();
+      }
+    };
   };
 
-  const [routing, setRouting] = useState('');
-  const handleRoutingChange = (value) => {
-    setRouting(value);
-  };
+  const PlaidLinkContent = () => (
+    <PlaidLink
+      tokenConfig={{
+        token: plaidAuthorization.data.attributes.link_token,
+      }}
+      onSuccess={async (success: LinkSuccess) => {
+        const authorization = await Api.updatePlaidPublicToken(
+          state.sessionToken,
+          plaidAuthorization.data.id,
+          success.publicToken,
+        );
+        const ach_accounts = get(authorization, 'meta.ach_accounts');
+        if (ach_accounts) {
+          setAchAccounts(ach_accounts);
+        }
+      }}
+      onExit={(exit: LinkExit) => {
+        console.log(exit);
+      }}>
+      <Text>Use Plaid</Text>
+    </PlaidLink>
+  );
 
-  const handleAdd = async () => {
-    const response = await Api.createBankAccountVerification(
-      state.sessionToken,
-      account,
-      routing,
-    );
-    const pendingId = get(response, 'data.id');
-    if (pendingId) {
-      navigation.goBack();
-    }
-  };
+  const AccountSelectorContent = () => (
+    <FlatList
+      data={achAccounts}
+      renderItem={({item}) => (
+        <View style={{paddingBottom: 15}}>
+          <Text>{item.name}</Text>
+          <Text>{item.account_number}</Text>
+          <Button block primary onPress={selectAchAccount(item)}>
+            <Text>Use account</Text>
+          </Button>
+        </View>
+      )}
+    />
+  );
 
   return (
     <Content padder>
-      <Form>
-        <Item>
-          <Label>Account number</Label>
-          <Input onChangeText={handleAccountChange} />
-        </Item>
-        <Item>
-          <Label>Routing number</Label>
-          <Input onChangeText={handleRoutingChange} />
-        </Item>
-        <Button block primary onPress={handleAdd}>
-          <Text>Add Account</Text>
-        </Button>
-      </Form>
+      {achAccounts.length === 0
+        ? plaidAuthorization && PlaidLinkContent()
+        : AccountSelectorContent()}
     </Content>
   );
 }

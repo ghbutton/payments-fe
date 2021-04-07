@@ -1,10 +1,9 @@
 import React, {useContext, useState, useEffect} from 'react';
-import {Linking, Keyboard} from 'react-native';
+// import {Linking, Keyboard} from 'react-native';
 import {Button, Content, Form, Item, Input, Text} from 'native-base';
 
 import Api from '../components/Api';
 import Utils from '../components/Utils';
-import DiskStore from '../components/DiskStore';
 import {Context} from '../components/MemoryStore';
 
 export default function CreateAccountScreen({navigation}) {
@@ -51,9 +50,14 @@ export default function CreateAccountScreen({navigation}) {
 
   const submit = async () => {
     if (state === 'CREATE_USER') {
-      const user = await Api.createUser(email, password, firstName, lastName);
-      if (user) {
-        setUser(user);
+      const createUser = await Api.createUser(
+        email,
+        password,
+        firstName,
+        lastName,
+      );
+      if (createUser) {
+        setUser(createUser);
         setState('EMAIL_VERIFICATION');
       }
     } else if (state === 'EMAIL_VERIFICATION') {
@@ -137,9 +141,9 @@ export default function CreateAccountScreen({navigation}) {
     </Content>
   );
 
-  if (state == 'CREATE_USER') {
+  if (state === 'CREATE_USER') {
     return userCreation();
-  } else if (state == 'EMAIL_VERIFICATION') {
+  } else if (state === 'EMAIL_VERIFICATION') {
     return emailVerificationView();
   }
 }

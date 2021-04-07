@@ -5959,6 +5959,11 @@ react-native-iphone-x-helper@^1.3.0:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
+react-native-plaid-link-sdk@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-plaid-link-sdk/-/react-native-plaid-link-sdk-7.0.0.tgz#cdaf8c20ec22e87d1833f679f48958d119a398db"
+  integrity sha512-v4W0H9KtCSj6Qi2XYI57xDR+0g6XEy9jMgT7dpEzBGJvMgM6CvF1NDGA3Flp5cTfYWGKfTG7cva13UnWsQw5fQ==
+
 react-native-qrcode-svg@^6.0.6:
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/react-native-qrcode-svg/-/react-native-qrcode-svg-6.0.6.tgz#bd4756cc0d76eeb3d162dca2f55eea80e3ebbe97"

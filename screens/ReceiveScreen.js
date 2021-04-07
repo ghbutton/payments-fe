@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import QRCode from 'react-native-qrcode-svg';
 import {
   Button,
@@ -34,18 +34,18 @@ export default function ReceiveScreen() {
       amount,
     );
     const attributes = get(response, 'data.attributes');
-    const pendingId = get(response, 'data.id');
+    const currentPendingId = get(response, 'data.id');
 
     if (
       attributes &&
       attributes.currency === currency &&
       attributes.status === 'unclaimed' &&
-      pendingId
+      currentPendingId
     ) {
       setSubmitted(true);
       setAmount(attributes.amount);
       setSecret(attributes.secret);
-      setPendingId(pendingId);
+      setPendingId(currentPendingId);
     }
   };
 

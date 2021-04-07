@@ -1,26 +1,26 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import AddBankAccountScreen from '../screens/AddBankAccountScreen';
 import BankAccountVerificationScreen from '../screens/BankAccountVerificationScreen';
 import CreateAccountScreen from '../screens/CreateAccountScreen';
-import DepositScreen from '../screens/DepositScreen';
+import BankDepositScreen from '../screens/BankDepositScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import OutdatedScreen from '../screens/OutdatedScreen';
 import PayScreen from '../screens/PayScreen';
 import ReceiveScreen from '../screens/ReceiveScreen';
-import WithdrawalScreen from '../screens/WithdrawalScreen';
+import BankWithdrawalScreen from '../screens/BankWithdrawalScreen';
 import SettingScreen from '../screens/SettingScreen';
 
-import {StateProvider, Context} from './MemoryStore';
+import {Context} from './MemoryStore';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function Navigator() {
-  const {state, dispatch} = useContext(Context);
+  const {state} = useContext(Context);
   const {sessionState} = state;
 
   const SettingTab = () => (
@@ -78,20 +78,20 @@ export default function Navigator() {
         options={{title: 'Verify Bank Account'}}
       />
       <Stack.Screen
-        name="DepositScreen"
-        component={DepositScreen}
-        options={{title: 'Deposit'}}
+        name="BankDepositScreen"
+        component={BankDepositScreen}
+        options={{title: 'Bank Deposit'}}
       />
       <Stack.Screen
-        name="WithdrawalScreen"
-        component={WithdrawalScreen}
-        options={{title: 'Withdrawal'}}
+        name="BankWithdrawalScreen"
+        component={BankWithdrawalScreen}
+        options={{title: 'Bank Withdrawal'}}
       />
     </Stack.Navigator>
   );
 
-  const navigator = (sessionState) => {
-    switch (sessionState) {
+  const navigator = (currentSessionState) => {
+    switch (currentSessionState) {
       case 'LOADING':
         return (
           <Stack.Navigator

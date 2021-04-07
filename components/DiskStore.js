@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default DiskStore = {
+const DiskStore = {
   setData: async (key, value) => {
     try {
       const jsonValue = JSON.stringify(value);
@@ -38,3 +38,5 @@ export default DiskStore = {
     }
   },
 };
+
+export default DiskStore;

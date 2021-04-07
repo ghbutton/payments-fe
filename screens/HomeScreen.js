@@ -23,10 +23,10 @@ export default function HomeScreen({navigation}) {
   const handleAddBankAccount = () =>
     navigation.navigate('AddBankAccountScreen');
   const handleBankWithdrawal = (bankAccount) => {
-    return () => navigation.navigate('WithdrawalScreen', {bankAccount});
+    return () => navigation.navigate('BankWithdrawalScreen', {bankAccount});
   };
   const handleBankDeposit = (bankAccount) => {
-    return () => navigation.navigate('DepositScreen', {bankAccount});
+    return () => navigation.navigate('BankDepositScreen', {bankAccount});
   };
   const handlePay = () => navigation.navigate('PayScreen');
   const handleReceive = () => navigation.navigate('ReceiveScreen');
@@ -48,43 +48,45 @@ export default function HomeScreen({navigation}) {
             users.data[0],
             'USDC',
           );
-          let transactionLogs = Api.getCurrentUserTransactionLogs(
+          let getTransactionLogs = Api.getCurrentUserTransactionLogs(
             state.sessionToken,
             users.data[0],
           );
-          let bankAccounts = Api.getBankAccounts(state.sessionToken);
-          let pendingBankAccountVerifications = Api.getPendingBankAccountVerifications(
+          let getBankAccounts = Api.getBankAccounts(state.sessionToken);
+          let getPendingBankAccountVerifications = Api.getPendingBankAccountVerifications(
             state.sessionToken,
           );
 
           balances = await balances;
-          transactionLogs = await transactionLogs;
-          bankAccounts = await bankAccounts;
-          pendingBankAccountVerifications = await pendingBankAccountVerifications;
+          getTransactionLogs = await getTransactionLogs;
+          getBankAccounts = await getBankAccounts;
+          getPendingBankAccountVerifications = await getPendingBankAccountVerifications;
 
-          const balance = get(balances, 'data[0]');
-          transactionLogs = get(transactionLogs, 'data', []);
-          bankAccounts = get(bankAccounts, 'data', []);
-          pendingBankAccountVerifications = get(
-            pendingBankAccountVerifications,
+          const getBalance = get(balances, 'data[0]');
+          getTransactionLogs = get(getTransactionLogs, 'data', []);
+          getBankAccounts = get(getBankAccounts, 'data', []);
+          getPendingBankAccountVerifications = get(
+            getPendingBankAccountVerifications,
             'data',
           );
 
-          if (balance) {
-            setBalance(balance);
+          if (getBalance) {
+            setBalance(getBalance);
           }
-          if (transactionLogs) {
-            setTransactionLogs(transactionLogs);
+          if (getTransactionLogs) {
+            setTransactionLogs(getTransactionLogs);
           }
-          if (pendingBankAccountVerifications) {
-            setPendingBankAccountVerifications(pendingBankAccountVerifications);
+          if (getPendingBankAccountVerifications) {
+            setPendingBankAccountVerifications(
+              getPendingBankAccountVerifications,
+            );
           }
 
-          if (bankAccounts) {
+          if (getBankAccounts) {
             let currentPendingTransactions = {};
 
-            for (const index in bankAccounts) {
-              const bankAccount = bankAccounts[index];
+            for (const index in getBankAccounts) {
+              const bankAccount = getBankAccounts[index];
               let bankTransactions = await Api.getPendingBankTransactions(
                 state.sessionToken,
                 bankAccount.id,
@@ -92,15 +94,15 @@ export default function HomeScreen({navigation}) {
 
               currentPendingTransactions[bankAccount.id] =
                 bankTransactions.data;
-              setBankAccounts(bankAccounts);
             }
+            setBankAccounts(getBankAccounts);
 
             setPendingBankTransactions(currentPendingTransactions);
           }
         }
       };
       fetch();
-    }, []),
+    }, [state.sessionToken]),
   );
 
   return (
@@ -148,7 +150,7 @@ export default function HomeScreen({navigation}) {
                         block
                         primary
                         onPress={handleBankWithdrawal(bankAccount)}>
-                        <Text>Withdrawal</Text>
+                        <Text>Bank Withdrawal</Text>
                       </Button>
                     </View>
                     <View style={{paddingTop: 15}}>
@@ -157,25 +159,27 @@ export default function HomeScreen({navigation}) {
                         primary
                         style={{}}
                         onPress={handleBankDeposit(bankAccount)}>
-                        <Text>Deposit</Text>
+                        <Text>Bank Deposit</Text>
                       </Button>
                     </View>
                     {pendingBankTransactions[bankAccount.id] &&
                     pendingBankTransactions[bankAccount.id].length > 0 ? (
-                      <Text>Pending Transactions:</Text>
+                      <View style={{paddingTop: 15}}>
+                        <Text>Pending Transactions:</Text>
+                        {(pendingBankTransactions[bankAccount.id] || []).map(
+                          (pendingTransaction) => (
+                            <React.Fragment key={pendingTransaction.id}>
+                              <Text>{`${
+                                pendingTransaction.attributes.type
+                              } - ${Money.fullString(
+                                pendingTransaction.attributes.amount,
+                                pendingTransaction.attributes.currency,
+                              )}`}</Text>
+                            </React.Fragment>
+                          ),
+                        )}
+                      </View>
                     ) : null}
-                    {(pendingBankTransactions[bankAccount.id] || []).map(
-                      (pendingTransaction) => (
-                        <React.Fragment key={pendingTransaction.id}>
-                          <Text>{`${
-                            pendingTransaction.attributes.type
-                          } - ${Money.fullString(
-                            pendingTransaction.attributes.amount,
-                            pendingTransaction.attributes.currency,
-                          )}`}</Text>
-                        </React.Fragment>
-                      ),
-                    )}
                   </React.Fragment>
                 ))}
               </>

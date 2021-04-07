@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Form, Item, Input, Label, Text} from 'native-base';
 import {RNCamera} from 'react-native-camera';
